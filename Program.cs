@@ -2,36 +2,62 @@
 {
     private static void Main(string[] args)
     {
-        Item item1 = new("Greek Yogurt", 15);
-        Item item2 = new("Milk", 30);
-        Item item3 = new("Bread", 40);
-        Item item4 = new("Peanut Butter", 8);
-        Item item5 = new("Eggs", 24);
-        Item notebook = new("Notebook", 5, new DateTime(2023, 3, 1));
+        var waterBottle = new Item("Water Bottle", 10, new DateTime(2023, 1, 1));
+        var chocolateBar = new Item("Chocolate Bar", 15, new DateTime(2023, 2, 1));
+        var notebook = new Item("Notebook", 5, new DateTime(2023, 3, 1));
+        var pen = new Item("Pen", 20, new DateTime(2023, 4, 1));
+        var tissuePack = new Item("Tissue Pack", 30, new DateTime(2023, 5, 1));
+        var chipsBag = new Item("Chips Bag", 25, new DateTime(2023, 6, 1));
+        var sodaCan = new Item("Soda Can", 8, new DateTime(2023, 7, 1));
+        var soap = new Item("Soap", 12, new DateTime(2023, 8, 1));
+        var shampoo = new Item("Shampoo", 40, new DateTime(2023, 9, 1));
+        var toothbrush = new Item("Toothbrush", 50, new DateTime(2023, 10, 1));
+        var coffee = new Item("Coffee", 20);
+        var sandwich = new Item("Sandwich", 15);
+        var batteries = new Item("Batteries", 10);
+        var umbrella = new Item("Umbrella", 5);
+        var sunscreen = new Item("Sunscreen", 8);
 
 
-        Store store = new Store();
+        Store myStore = new Store();
 
-        store.AddItem(item1);
-        store.AddItem(item2);
-        store.AddItem(item3);
-        store.AddItem(item4);
-        store.AddItem(item5);
-        store.AddItem(notebook);
+        myStore.AddItem(waterBottle);
+        myStore.AddItem(pen);
+        myStore.AddItem(soap);
+        myStore.AddItem(coffee);
+        myStore.AddItem(batteries);
+        myStore.AddItem(umbrella);
 
-        Console.WriteLine(store.GetCurrentVolume());
-        store.GetStorageItemNames();
-        Console.WriteLine("=======================");
+        Console.WriteLine(myStore.GetCurrentVolume());
+        Console.WriteLine("============================================");
+        myStore.GetStorageItemNames();
+        Console.WriteLine("============================================");
 
-        //delete test (works)
-        store.DeleteItem(notebook);
-        store.DeleteItem(item1);
-        store.GetStorageItemNames();
+        myStore.DeleteItem(waterBottle);
+        myStore.DeleteItem(umbrella);
+        Console.WriteLine("AFTER DELETE");
+        Console.WriteLine(myStore.GetCurrentVolume());
+        myStore.GetStorageItemNames();
+        Console.WriteLine("============================================");
 
-        Console.WriteLine("=======================");
+        var targetItem1 = myStore.FindItemByName("Pen");
+        Console.WriteLine(targetItem1.GetName());
 
-        //SortByNameAsc test
-        store.SortByNameAsc();
+        Console.WriteLine("============================================");
+
+        List<Item> myList = myStore.SortByNameAsc();
+        myList.ForEach(item =>
+        {
+            Console.WriteLine(item.GetName());
+        });
+
+
+
+
+
+
+
+
 
     }
 }

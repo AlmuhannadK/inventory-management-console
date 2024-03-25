@@ -1,4 +1,3 @@
-using System.Net.WebSockets;
 
 public class Store
 {
@@ -13,32 +12,31 @@ public class Store
     //methods
     public void AddItem(Item item)
     {
-        // @TODO: validations
-        _storage.Add(item);
+        bool foundItem = _storage.Contains(item);
+        if (!foundItem)
+        {
+            _storage.Add(item);
+        }
     }
 
-    public string DeleteItem(Item item)
+    public bool DeleteItem(Item item)
     {
-        // @TODO: validations
         bool result = _storage.Remove(item);
         if (result)
         {
-            return "Removed item successfully";
+            return true;
         }
-        else
-        {
-            return "Item doesn't exist";
-        }
+        return false;
     }
 
-    public string GetCurrentVolume()
+    public int GetCurrentVolume()
     {
-        return $"There are {_storage.Count()} items in the store";
+        return _storage.Count();
     }
 
     public void GetStorageItemNames()
     {
-        foreach (var item in _storage)
+        foreach (Item item in _storage)
         {
             Console.WriteLine($"Name: {item.GetName()}");
         }
@@ -47,17 +45,22 @@ public class Store
 
     public Item FindItemByName(string name)
     {
-        Item? searchedItem = _storage.Find(elem => elem.GetName() == name);
+        Item? searchedItem = _storage.Find(item => item.GetName() == name);
+        if (searchedItem is null)
+        {
+            Console.WriteLine("item not in stock");
+
+
+        }
         return searchedItem;
     }
 
     // Method SortByNameAscto get the sorted collection by name in ascending order.
 
-    public void SortByNameAsc()
+    public List<Item> SortByNameAsc()
     {
         List<Item> sortedList = _storage.OrderBy(item => item.GetName()).ToList();
-
+        return sortedList;
     }
-
 
 }

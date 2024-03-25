@@ -3,19 +3,19 @@ public class Item
     private readonly string _name;
     private int _quantity;
 
-    private DateTime _createdDate;
+    private DateTime _createdAt;
 
-    public Item(string name, int quantity, DateTime createdDate)
+    public Item(string name, int quantity, DateTime createdAt)
     {
         _name = name;
         _quantity = quantity;
-        _createdDate = createdDate;
+        _createdAt = createdAt;
     }
     public Item(string name, int quantity)
     {
         _name = name;
         _quantity = quantity;
-        _createdDate = DateTime.Now;
+        _createdAt = DateTime.Now;
     }
 
     public string GetName()
@@ -25,7 +25,7 @@ public class Item
 
     public DateTime GetDateTime()
     {
-        return _createdDate;
+        return _createdAt;
     }
 
 }
