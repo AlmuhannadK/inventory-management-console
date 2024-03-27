@@ -2,6 +2,8 @@
 {
     private static void Main(string[] args)
     {
+
+        // Item instances
         var waterBottle = new Item("Water Bottle", 10, new DateTime(2023, 1, 1));
         var chocolateBar = new Item("Chocolate Bar", 15, new DateTime(2023, 2, 1));
         var notebook = new Item("Notebook", 5, new DateTime(2023, 3, 1));
@@ -17,47 +19,52 @@
         var batteries = new Item("Batteries", 10);
         var umbrella = new Item("Umbrella", 5);
         var sunscreen = new Item("Sunscreen", 8);
+        var milk = new Item("Milk", 12, new DateTime(2022, 12, 12));
+        var eggs = new Item("Eggs", 34, new DateTime(2020, 9, 14));
 
+        // Store instance
+        Store myStore = new Store("Ada's Shop");
 
-        Store myStore = new Store();
-
+        // Testing AddItem method
         myStore.AddItem(waterBottle);
         myStore.AddItem(pen);
         myStore.AddItem(soap);
         myStore.AddItem(coffee);
         myStore.AddItem(batteries);
         myStore.AddItem(umbrella);
+        myStore.AddItem(sodaCan);
+        myStore.AddItem(notebook);
+        myStore.AddItem(toothbrush);
+        myStore.AddItem(chocolateBar);
+        myStore.AddItem(milk);
+        myStore.AddItem(eggs);
 
-        Console.WriteLine(myStore.GetCurrentVolume());
+        // Get Number of Items in Store
+        Console.WriteLine(myStore.GetStorageItems());
         Console.WriteLine("============================================");
+
+        // Retrieve Item Names in Store
         myStore.GetStorageItemNames();
         Console.WriteLine("============================================");
 
+        // Testing DeleteItem method
         myStore.DeleteItem(waterBottle);
-        myStore.DeleteItem(umbrella);
-        Console.WriteLine("AFTER DELETE");
-        Console.WriteLine(myStore.GetCurrentVolume());
+        myStore.DeleteItem(milk);
+        Console.WriteLine("**AFTER DELETE");
         myStore.GetStorageItemNames();
+        Console.WriteLine(myStore.GetStorageItems());
         Console.WriteLine("============================================");
 
-        var targetItem1 = myStore.FindItemByName("Pen");
-        Console.WriteLine(targetItem1.GetName());
-
+        // Testing FindItemByName method
+        var targetItem = myStore.FindItemByName("Toothbrush");
+        Console.WriteLine($"Here's your search result: {targetItem.GetName()}");
         Console.WriteLine("============================================");
 
-        List<Item> myList = myStore.SortByNameAsc();
-        myList.ForEach(item =>
-        {
-            Console.WriteLine(item.GetName());
-        });
-
-
-
-
-
-
-
-
+        // Testing SortByName method (pass ASC or DESC)
+        List<Item> sortedList = myStore.SortByName(SortOrder.DESC);
+        Console.WriteLine("**AFTER SORTING");
+        sortedList.ForEach(item => Console.WriteLine(item.GetName()));
+        Console.WriteLine("============================================");
 
     }
 }

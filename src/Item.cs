@@ -23,9 +23,24 @@ public class Item
         return _name;
     }
 
+    public int GetQuantity()
+    {
+        return _quantity;
+    }
+
+    public void SetQuantity(int quantity)
+    {
+        _quantity = quantity;
+    }
+
     public DateTime GetDateTime()
     {
         return _createdAt;
+    }
+
+    public void SetDateTime(DateTime date)
+    {
+        _createdAt = date;
     }
 
 }

@@ -41,14 +41,14 @@ var sunscreen = new Item("Sunscreen", 8);
 
 Class `Store` should have the following features:
 
-- Maximum capacity , which is total amount of items allowed in the store, and contructor should also take an integer value as the maximum capacity of the inventory.
-- Modify the add method to not overload the capacity
+- [] Maximum capacity , which is total amount of items allowed in the store, and contructor should also take an integer value as the maximum capacity of the inventory.
+- [] Modify the add method to not overload the capacity
 
 ## Level 3 - Extra feature: Complex functionalities
 
 Class `Store` should have extra features
 
-- Method `SortByDate` to get the sorted collection by date dynamically (asc or desc)
+- [] Method `SortByDate` to get the sorted collection by date dynamically (asc or desc)
   ```
    // method invocation example - You do not need to follow exactly the same
   var store = new Store(300)
@@ -57,7 +57,7 @@ Class `Store` should have extra features
   // print all items
   ...
   ```
-- Method `GroupByDate` to return 2 groups `New Arrival` and `Old` items. `New Arrival` items are those created within the last three months. For example, if the current month is October, then items created in August, September, and October are categorized as `New Arrival`. Items created before August are categorized as `Old`.
+- [] Method `GroupByDate` to return 2 groups `New Arrival` and `Old` items. `New Arrival` items are those created within the last three months. For example, if the current month is October, then items created in August, September, and October are categorized as `New Arrival`. Items created before August are categorized as `Old`.
 
   ```
   // method invocation example - You do not need to follow exactly the same
