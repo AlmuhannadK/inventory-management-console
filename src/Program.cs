@@ -76,13 +76,21 @@
         Console.WriteLine($"Storage Maximum Capacity is {myStore.GetMaxCapacity()}");
         // var testCapacity = new Item("Test", 1000);
         // myStore.AddItem(testCapacity);
-
         Console.WriteLine("============================================");
-        //testing id field
+
+
+        // Testing generated id field
         Console.WriteLine(notebook.GetId());
         Console.WriteLine(milk.GetId());
-        Console.WriteLine(toothbrush.GetId());
-        //milk.GetId();
+        Console.WriteLine("============================================");
+
+
+        // Testing SortByDate method
+
+        List<Item> sortByDateList = myStore.SortByDate(SortOrder.DESC);
+        Console.WriteLine("SORTING BY DATE");
+
+        sortByDateList.ForEach(item => Console.WriteLine($"Item: {item.GetName()}, Date: {item.GetDateTime()}"));
 
 
     }

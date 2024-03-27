@@ -97,10 +97,20 @@ public class Store
         {
             return _storage.OrderByDescending(item => item.GetName()).ToList();
         }
-        else
+        return _storage;
+    }
+
+    public List<Item> SortByDate(SortOrder order)
+    {
+        if (order == SortOrder.ASC)
         {
-            return _storage;
+            return _storage.OrderBy(item => item.GetDateTime()).ToList();
         }
+        if (order == SortOrder.DESC)
+        {
+            return _storage.OrderByDescending(item => item.GetDateTime()).ToList();
+        }
+        return _storage;
     }
 
 }
