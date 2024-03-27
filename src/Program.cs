@@ -77,6 +77,13 @@
         // var testCapacity = new Item("Test", 1000);
         // myStore.AddItem(testCapacity);
 
+        Console.WriteLine("============================================");
+        //testing id field
+        Console.WriteLine(notebook.GetId());
+        Console.WriteLine(milk.GetId());
+        Console.WriteLine(toothbrush.GetId());
+        //milk.GetId();
+
 
     }
 }

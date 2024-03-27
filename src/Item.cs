@@ -1,8 +1,9 @@
+
 public class Item
 {
+    private readonly Guid _id = Guid.NewGuid();
     private readonly string _name;
     private int _quantity;
-
     private DateTime _createdAt;
 
     public Item(string name, int quantity, DateTime createdAt)
@@ -16,8 +17,13 @@ public class Item
         _name = name;
         _quantity = quantity;
         _createdAt = DateTime.Now;
+
     }
 
+    public Guid GetId()
+    {
+        return _id;
+    }
     public string GetName()
     {
         return _name;

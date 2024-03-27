@@ -3,7 +3,6 @@ public class Store
 {
     private readonly string _name;
     private readonly List<Item> _storage;
-
     private readonly int _maximumCapacity;
 
     public Store(string name, int maximumCapacity)
