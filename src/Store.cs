@@ -46,7 +46,12 @@ public class Store
 
     public int GetCurrentVolume()
     {
-        return _storage.Count();
+        int totalAmount = 0;
+        foreach (Item item in _storage)
+        {
+            totalAmount += item.GetQuantity();
+        }
+        return totalAmount;
     }
 
     public void GetStorageItemNames()

@@ -66,5 +66,10 @@
         sortedList.ForEach(item => Console.WriteLine(item.GetName()));
         Console.WriteLine("============================================");
 
+        // Testing GetCurrentVolume method (each item's quantity)
+        int totalVolume = myStore.GetCurrentVolume();
+        Console.WriteLine($"total items volume: {totalVolume}");
+        Console.WriteLine("============================================");
+
     }
 }
