@@ -23,7 +23,7 @@
         var eggs = new Item("Eggs", 34, new DateTime(2020, 9, 14));
 
         // Store instance
-        Store myStore = new Store("Ada's Shop");
+        Store myStore = new Store("Ada's Shop", 450);
 
         // Testing AddItem method
         myStore.AddItem(waterBottle);
@@ -70,6 +70,13 @@
         int totalVolume = myStore.GetCurrentVolume();
         Console.WriteLine($"total items volume: {totalVolume}");
         Console.WriteLine("============================================");
+
+
+        // Testing GetMaxCapacity and item addition
+        Console.WriteLine($"Storage Maximum Capacity is {myStore.GetMaxCapacity()}");
+        // var testCapacity = new Item("Test", 1000);
+        // myStore.AddItem(testCapacity);
+
 
     }
 }

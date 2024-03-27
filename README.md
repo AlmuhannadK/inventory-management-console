@@ -41,8 +41,8 @@ var sunscreen = new Item("Sunscreen", 8);
 
 Class `Store` should have the following features:
 
-- [] Maximum capacity , which is total amount of items allowed in the store, and contructor should also take an integer value as the maximum capacity of the inventory.
-- [] Modify the add method to not overload the capacity
+- [x] Maximum capacity , which is total amount of items allowed in the store, and contructor should also take an integer value as the maximum capacity of the inventory.
+- [x] Modify the add method to not overload the capacity
 
 ## Level 3 - Extra feature: Complex functionalities
 

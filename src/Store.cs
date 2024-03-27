@@ -4,10 +4,13 @@ public class Store
     private readonly string _name;
     private readonly List<Item> _storage;
 
-    public Store(string name)
+    private readonly int _maximumCapacity;
+
+    public Store(string name, int maximumCapacity)
     {
         _name = name;
         _storage = [];
+        _maximumCapacity = maximumCapacity;
     }
 
     public string GetStoreName()
@@ -20,8 +23,20 @@ public class Store
         return _storage.Count();
     }
 
+    public int GetMaxCapacity()
+    {
+        return _maximumCapacity;
+    }
+
     public bool AddItem(Item newItem)
     {
+        int availableSpace = GetMaxCapacity() - GetCurrentVolume();
+
+        if (newItem.GetQuantity() > availableSpace)
+        {
+            throw new Exception("Not enough space available in storage!");
+        }
+
         bool itemExists = _storage.Contains(newItem);
         if (!itemExists)
         {
