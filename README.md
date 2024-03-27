@@ -48,7 +48,7 @@ Class `Store` should have the following features:
 
 Class `Store` should have extra features
 
-- [] Method `SortByDate` to get the sorted collection by date dynamically (asc or desc)
+- [x] Method `SortByDate` to get the sorted collection by date dynamically (asc or desc)
   ```
    // method invocation example - You do not need to follow exactly the same
   var store = new Store(300)

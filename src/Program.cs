@@ -7,7 +7,7 @@
         var waterBottle = new Item("Water Bottle", 10, new DateTime(2023, 1, 1));
         var chocolateBar = new Item("Chocolate Bar", 15, new DateTime(2023, 2, 1));
         var notebook = new Item("Notebook", 5, new DateTime(2023, 3, 1));
-        var pen = new Item("Pen", 20, new DateTime(2023, 4, 1));
+        var pen = new Item("Pen", 20, new DateTime(1997, 4, 1));
         var tissuePack = new Item("Tissue Pack", 30, new DateTime(2023, 5, 1));
         var chipsBag = new Item("Chips Bag", 25, new DateTime(2023, 6, 1));
         var sodaCan = new Item("Soda Can", 8, new DateTime(2023, 7, 1));
@@ -20,7 +20,7 @@
         var umbrella = new Item("Umbrella", 5);
         var sunscreen = new Item("Sunscreen", 8);
         var milk = new Item("Milk", 12, new DateTime(2022, 12, 12));
-        var eggs = new Item("Eggs", 34, new DateTime(2020, 9, 14));
+        var eggs = new Item("Eggs", 34, new DateTime(2024, 2, 2));
 
         // Store instance
         Store myStore = new Store("Ada's Shop", 450);
@@ -62,7 +62,7 @@
 
         // Testing SortByName method (pass ASC or DESC)
         List<Item> sortedList = myStore.SortByName(SortOrder.DESC);
-        Console.WriteLine("**AFTER SORTING");
+        Console.WriteLine("**AFTER SORTING BY NAME");
         sortedList.ForEach(item => Console.WriteLine(item.GetName()));
         Console.WriteLine("============================================");
 
@@ -88,7 +88,7 @@
         // Testing SortByDate method
 
         List<Item> sortByDateList = myStore.SortByDate(SortOrder.DESC);
-        Console.WriteLine("SORTING BY DATE");
+        Console.WriteLine("**SORTING BY DATE");
 
         sortByDateList.ForEach(item => Console.WriteLine($"Item: {item.GetName()}, Date: {item.GetDateTime()}"));
 
