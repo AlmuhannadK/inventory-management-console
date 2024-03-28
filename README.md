@@ -57,7 +57,7 @@ Class `Store` should have extra features
   // print all items
   ...
   ```
-- [] Method `GroupByDate` to return 2 groups `New Arrival` and `Old` items. `New Arrival` items are those created within the last three months. For example, if the current month is October, then items created in August, September, and October are categorized as `New Arrival`. Items created before August are categorized as `Old`.
+- [x] Method `GroupByDate` to return 2 groups `New Arrival` and `Old` items. `New Arrival` items are those created within the last three months. For example, if the current month is October, then items created in August, September, and October are categorized as `New Arrival`. Items created before August are categorized as `Old`.
 
   ```
   // method invocation example - You do not need to follow exactly the same

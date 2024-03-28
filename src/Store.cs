@@ -31,7 +31,7 @@ public class Store
     {
         int availableSpace = GetMaxCapacity() - GetCurrentVolume();
 
-        if (newItem.GetQuantity() > availableSpace)
+        if (newItem.Quantity > availableSpace)
         {
             throw new Exception("Not enough space available in storage!");
         }
@@ -60,11 +60,7 @@ public class Store
 
     public int GetCurrentVolume()
     {
-        int totalAmount = 0;
-        foreach (Item item in _items)
-        {
-            totalAmount += item.GetQuantity();
-        }
+        int totalAmount = _items.Sum(item => item.Quantity);
         return totalAmount;
     }
 
@@ -104,23 +100,32 @@ public class Store
     {
         if (order == SortOrder.ASC)
         {
-            return _items.OrderBy(item => item.GetDateTime()).ToList();
+            return _items.OrderBy(item => item.GetCreatedAt()).ToList();
         }
         if (order == SortOrder.DESC)
         {
-            return _items.OrderByDescending(item => item.GetDateTime()).ToList();
+            return _items.OrderByDescending(item => item.GetCreatedAt()).ToList();
         }
         return _items;
     }
 
-    // GroupByDate --> perhaps use LINQ operator (GroupBy)?
+    public IEnumerable<IGrouping<string, Item>>? GroupByDate()
+    {
+        var grouped = _items.GroupBy(item =>
+        {
+            double timeDifferenceInDays = (DateTime.Now - item.GetCreatedAt()).TotalDays;
 
-    // public Dictionary<DateTime, Item> GroupByDate()
-    // {
-    //     var listByDate = _items.GroupBy(item => item.GetDateTime());
-    //     Console.WriteLine(listByDate);
-    //     return listByDate.ToDictionary();
-    // }
+            if (timeDifferenceInDays < 90)
+            {
+                return "New Arrival";
+            }
+            else
+            {
+                return "Old";
+            }
 
+        });
+        return grouped;
+    }
 
 }

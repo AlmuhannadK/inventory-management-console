@@ -2,20 +2,36 @@
 public class Item
 {
     private readonly Guid _id = Guid.NewGuid();
-    private readonly string _name;
+    private string _name;
     private int _quantity;
+
+    public int Quantity
+    {
+        get
+        {
+            return _quantity;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                throw new ArgumentOutOfRangeException("Quantity cannot be a negative value");
+            }
+            _quantity = value;
+        }
+    }
     private DateTime _createdAt;
 
     public Item(string name, int quantity, DateTime createdAt)
     {
         _name = name;
-        _quantity = quantity;
+        Quantity = quantity;
         _createdAt = createdAt;
     }
     public Item(string name, int quantity)
     {
         _name = name;
-        _quantity = quantity;
+        Quantity = quantity;
         _createdAt = DateTime.Now;
 
     }
@@ -29,24 +45,9 @@ public class Item
         return _name;
     }
 
-    public int GetQuantity()
-    {
-        return _quantity;
-    }
-
-    public void SetQuantity(int quantity)
-    {
-        _quantity = quantity;
-    }
-
-    public DateTime GetDateTime()
+    public DateTime GetCreatedAt()
     {
         return _createdAt;
-    }
-
-    public void SetDateTime(DateTime date)
-    {
-        _createdAt = date;
     }
 
 }

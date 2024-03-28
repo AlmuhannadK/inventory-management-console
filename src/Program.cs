@@ -23,9 +23,9 @@
         var eggs = new Item("Eggs", 34, new DateTime(2024, 2, 2));
 
         // Store instance
-        Store myStore = new Store("Ada's Shop", 450);
+        Store myStore = new("Ada's Shop", 450);
 
-        // Testing AddItem method
+        // AddItem method
         myStore.AddItem(waterBottle);
         myStore.AddItem(pen);
         myStore.AddItem(soap);
@@ -39,7 +39,7 @@
         myStore.AddItem(milk);
         myStore.AddItem(eggs);
 
-        // Get Number of Items in Store
+        // Get Number of Items in Store 
         Console.WriteLine(myStore.GetStorageItems());
         Console.WriteLine("============================================");
 
@@ -47,7 +47,7 @@
         myStore.GetStorageItemNames();
         Console.WriteLine("============================================");
 
-        // Testing DeleteItem method
+        // DeleteItem method
         myStore.DeleteItem(waterBottle);
         myStore.DeleteItem(milk);
         Console.WriteLine("**AFTER DELETE");
@@ -55,43 +55,54 @@
         Console.WriteLine(myStore.GetStorageItems());
         Console.WriteLine("============================================");
 
-        // Testing FindItemByName method
+        // FindItemByName method
         var targetItem = myStore.FindItemByName("Toothbrush");
         Console.WriteLine($"Here's your search result: {targetItem.GetName()}");
         Console.WriteLine("============================================");
 
-        // Testing SortByName method (pass ASC or DESC)
+        // SortByName method (pass ASC or DESC)
         List<Item> sortedList = myStore.SortByName(SortOrder.DESC);
         Console.WriteLine("**AFTER SORTING BY NAME");
         sortedList.ForEach(item => Console.WriteLine(item.GetName()));
         Console.WriteLine("============================================");
 
-        // Testing GetCurrentVolume method (each item's quantity)
+        // GetCurrentVolume method (each item's quantity)
         int totalVolume = myStore.GetCurrentVolume();
         Console.WriteLine($"total items volume: {totalVolume}");
         Console.WriteLine("============================================");
 
 
-        // Testing GetMaxCapacity and item addition
+        // GetMaxCapacity and item addition
         Console.WriteLine($"Storage Maximum Capacity is {myStore.GetMaxCapacity()}");
         // var testCapacity = new Item("Test", 1000);
         // myStore.AddItem(testCapacity);
         Console.WriteLine("============================================");
 
 
-        // Testing generated id field
+        // Generated id field
         Console.WriteLine(notebook.GetId());
         Console.WriteLine(milk.GetId());
         Console.WriteLine("============================================");
 
 
-        // Testing SortByDate method
-
+        // SortByDate method
         List<Item> sortByDateList = myStore.SortByDate(SortOrder.DESC);
         Console.WriteLine("**SORTING BY DATE");
 
-        sortByDateList.ForEach(item => Console.WriteLine($"Item: {item.GetName()}, Date: {item.GetDateTime()}"));
+        sortByDateList.ForEach(item => Console.WriteLine($"Item: {item.GetName()}, Date: {item.GetCreatedAt()}"));
+        Console.WriteLine("============================================");
 
+
+        // GroupByDate method
+        var groupByDate = myStore.GroupByDate();
+        foreach (var group in groupByDate)
+        {
+            Console.WriteLine($"{group.Key} Items: ");
+            foreach (var item in group)
+            {
+                Console.WriteLine($" - {item.GetName()}, Created: {item.GetCreatedAt().ToShortDateString()}");
+            }
+        }
 
     }
 }
